@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Typo Mosaic — Transform photos into typographic art using typewriter-style text placement.">
+  <title>Typo Mosaic — Photo to Typography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="typo-mosaic.css">
+</head>
+<body>
+
+  <!-- Tool Navigation -->
+  <nav id="tool-nav">
+    <a href="index.html" class="nav-link">
+      <span class="nav-icon">◆</span> Italic Modulator
+    </a>
+    <span class="nav-divider">|</span>
+    <a href="typo-mosaic.html" class="nav-link active">
+      <span class="nav-icon">▦</span> Typo Mosaic
+    </a>
+    <span class="nav-divider">|</span>
+    <a href="halftone.html" class="nav-link">
+      <span class="nav-icon">◉</span> Halftone
+    </a>
+  </nav>
+
+  <div id="app">
+
+    <!-- Left Panel: Source Input -->
+    <section id="panel-input" class="panel">
+      <div class="panel-header">
+        <span class="panel-label">SOURCE PHOTO</span>
+        <span class="panel-tag">INPUT</span>
+      </div>
+      <div id="drop-zone">
+        <div id="drop-zone-content">
+          <div id="drop-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <rect x="4" y="4" width="40" height="40" rx="4" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/>
+              <path d="M24 16v16M16 24h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="drop-text-primary">Drop image here</p>
+          <p class="drop-text-secondary">or click to browse</p>
+          <p class="drop-text-hint">JPG, PNG, WEBP — max 10 MB</p>
+        </div>
+        <img id="source-preview" alt="Source photo preview" />
+        <button id="btn-clear-image" title="Remove image">&times;</button>
+        <input type="file" id="file-input" accept="image/*" />
+      </div>
+
+      <!-- Word Bank -->
+      <div id="word-bank-section">
+        <label class="section-label">WORD BANK</label>
+        <p class="section-hint">Words used to build the mosaic. Comma-separated.</p>
+        <textarea id="word-bank" rows="3" spellcheck="false">tree, branch, leaf, bark, root, sky, wind, sun, green, grow, wood, nature, earth, seed, bloom</textarea>
+      </div>
+    </section>
+
+    <!-- Center Panel: Controls -->
+    <section id="panel-controls" class="panel">
+      <div class="panel-header">
+        <span class="panel-label">CONTROLS</span>
+      </div>
+
+      <!-- Simplicity Slider -->
+      <div id="simplicity-control" class="control-block">
+        <label class="section-label">SIMPLICITY &amp; WORD COUNT</label>
+        <div id="simplicity-slider-wrap">
+          <span class="slider-end-label">SIMPLE<br><small>FEWER WORDS</small></span>
+          <input type="range" id="simplicity-slider" min="1" max="100" value="50" step="1">
+          <span class="slider-end-label right">DETAILED<br><small>MORE WORDS</small></span>
+        </div>
+        <div id="simplicity-value-display">
+          <span id="simplicity-val">50</span><span class="unit">%</span>
+        </div>
+      </div>
+
+      <!-- Font Size -->
+      <div class="control-block">
+        <label class="section-label">FONT SIZE RANGE</label>
+        <div class="dual-range">
+          <div class="range-control">
+            <label>MIN</label>
+            <div class="range-row">
+              <input type="range" id="font-min" min="4" max="36" value="6" step="1">
+              <span class="range-value" id="font-min-val">6</span>
+            </div>
+          </div>
+          <div class="range-control">
+            <label>MAX</label>
+            <div class="range-row">
+              <input type="range" id="font-max" min="4" max="72" value="24" step="1">
+              <span class="range-value" id="font-max-val">24</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brightness Threshold -->
+      <div class="control-block">
+        <label class="section-label">BRIGHTNESS THRESHOLD</label>
+        <div class="range-control">
+          <div class="range-row">
+            <input type="range" id="brightness-threshold" min="0" max="255" value="200" step="1">
+            <span class="range-value" id="brightness-val">200</span>
+          </div>
+        </div>
+        <p class="section-hint">Areas brighter than this are left blank.</p>
+      </div>
+
+
+
+      <!-- Generate -->
+      <div class="control-block">
+        <button id="btn-generate" class="action-btn primary" disabled>
+          <span class="btn-text">Generate Mosaic</span>
+          <span class="btn-spinner" style="display:none;"></span>
+        </button>
+        <button id="btn-download" class="action-btn" disabled>Download PNG</button>
+      </div>
+    </section>
+
+    <!-- Right Panel: Output -->
+    <section id="panel-output" class="panel">
+      <div class="panel-header">
+        <span class="panel-label">GENERATED TYPOGRAPHY</span>
+        <span class="panel-tag">OUTPUT</span>
+      </div>
+      <div id="output-area">
+        <canvas id="output-canvas"></canvas>
+        <div id="output-placeholder">
+          <p>Upload a photo and press<br><strong>Generate Mosaic</strong><br>to see results here.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="typo-mosaic.js"></script>
+</body>
+</html>
