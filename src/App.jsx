@@ -257,7 +257,7 @@ function App() {
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [simplicity, fontMin, fontMax, brightnessThreshold, wordBank, hasImage, generateMosaic, selectedFont, rotation]);
+  }, [simplicity, fontMin, fontMax, brightnessThreshold, wordBank, hasImage, imageSrc, generateMosaic, selectedFont, rotation]);
 
 
 
