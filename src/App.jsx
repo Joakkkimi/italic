@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
+import { Analytics } from '@vercel/analytics/react'
+
 import { WORD_DATABASE } from './data/words'
 import {
   Dices,
@@ -261,6 +263,7 @@ function App() {
 
 
   return (
+    <>
     <div id="app" style={{ 
       fontFamily: selectedFont,
       '--font-mono': selectedFont,
@@ -454,6 +457,8 @@ function App() {
 
       </section>
     </div>
+    <Analytics />
+    </>
   )
 }
 
