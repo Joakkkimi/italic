@@ -354,15 +354,7 @@ html, body {
   gap: 10px;
 }
 
-.range-value {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-mid);
-  min-width: 28px;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
+
 
 /* Range slider styling */
 input[type="range"] {

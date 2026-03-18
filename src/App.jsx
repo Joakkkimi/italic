@@ -376,7 +376,6 @@ function App() {
                   <div className="scaling-ball" style={{ transform: `scale(${0.4 + (simplicity / 100) * 0.6})` }}></div>
                 </div>
                 <input type="range" id="simplicity-slider" min="1" max="100" step="1" value={simplicity} onChange={e => setSimplicity(parseInt(e.target.value))} />
-                <span className="range-value">{simplicity}%</span>
               </div>
             </div>
           </div>
@@ -391,7 +390,6 @@ function App() {
                     <div className="scaling-ball" style={{ transform: `scale(${0.5 + ((fontMin - 4) / (36 - 4)) * 0.5})` }}></div>
                   </div>
                   <input type="range" id="font-min" min="4" max="36" step="1" value={fontMin} onChange={e => setFontMin(parseInt(e.target.value))} />
-                  <span className="range-value" id="font-min-val">{fontMin}</span>
                 </div>
               </div>
               <div className="range-control">
@@ -401,7 +399,6 @@ function App() {
                     <div className="scaling-ball" style={{ transform: `scale(${0.5 + ((fontMax - 4) / (72 - 4)) * 0.5})` }}></div>
                   </div>
                   <input type="range" id="font-max" min="4" max="72" step="1" value={fontMax} onChange={e => setFontMax(parseInt(e.target.value))} />
-                  <span className="range-value" id="font-max-val">{fontMax}</span>
                 </div>
               </div>
             </div>
@@ -415,7 +412,6 @@ function App() {
                   <div className="scaling-ball" style={{ opacity: 0.1 + (brightnessThreshold / 255) * 0.9 }}></div>
                 </div>
                 <input type="range" id="brightness-threshold" min="0" max="255" step="1" value={brightnessThreshold} onChange={e => setBrightnessThreshold(parseInt(e.target.value))} />
-                <span className="range-value" id="brightness-val">{brightnessThreshold}</span>
               </div>
             </div>
           </div>
@@ -440,7 +436,6 @@ function App() {
                   value={rotation} 
                   onChange={e => setRotation(parseInt(e.target.value))} 
                 />
-                <span className="range-value">{rotation}°</span>
               </div>
             </div>
           </div>
